@@ -18,7 +18,7 @@ resource "ibm_container_cluster" "cluster" {
   name              = "${var.cluster_name}"
   datacenter        = "${var.datacenter}"
   hardware          = "shared"
-  worker_num        = "${var.worker_num}"
+  default_pool_size = "${var.poolsize}"
   machine_type      = "${var.machine_type}"
   public_vlan_id    = "${var.public_vlan_id}"
   private_vlan_id   = "${var.private_vlan_id}"

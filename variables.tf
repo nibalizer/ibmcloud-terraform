@@ -18,7 +18,7 @@ variable "cluster_name" {
   default = "cluster"
 }
 
-variable "worker_num" { }
+variable "poolsize" { }
 
 variable "region" {
     default = "us-south"
