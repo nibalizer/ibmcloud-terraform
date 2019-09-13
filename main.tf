@@ -17,15 +17,16 @@ data "ibm_space" "space" {
 resource "ibm_container_cluster" "cluster" {
   name              = "${var.cluster_name}"
   datacenter        = "${var.datacenter}"
-  hardware          = "shared"
+  hardware          = "${var.hardware}"
   default_pool_size = "${var.poolsize}"
   machine_type      = "${var.machine_type}"
   public_vlan_id    = "${var.public_vlan_id}"
   private_vlan_id   = "${var.private_vlan_id}"
+  kube_version      = "${var.kube_version}"
 }
 
 resource "ibm_service_instance" "mysql_db" {
-  name       = "composeformysql"
+  name       = "${var.service_name}"
   space_guid = "${data.ibm_space.space.id}"
   service    = "compose-for-mysql"
   plan       = "Standard"

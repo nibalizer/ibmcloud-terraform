@@ -23,3 +23,14 @@ variable "poolsize" { }
 variable "region" {
     default = "us-south"
  }
+
+variable "service_name" {
+    default = "composeformysql"
+ }
+
+ variable "kube_version" {
+    default = "3.11_openshift"
+ }
+ variable "hardware" {
+    default = "shared"
+ }
