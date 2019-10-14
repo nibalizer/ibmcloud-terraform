@@ -1,3 +1,7 @@
+variable "ibmcloud_api_key" {
+    description = "Your IBM Cloud IAM key to provision resources. Create an IBM Cloud IAM key here: cloud.ibm.com/iam/apikeys"
+}
+
 variable "org" {
     description = "Your IBM Cloud organization which is gnerally your email address. Run `ibmcloud cf orgs` to see all your orgs."
  }
