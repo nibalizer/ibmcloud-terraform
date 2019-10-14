@@ -2,18 +2,18 @@ variable "ibmcloud_api_key" {
     description = "Your IBM Cloud IAM key to provision resources. Create an IBM Cloud IAM key here: cloud.ibm.com/iam/apikeys"
 }
 
-variable "org" {
-    description = "Your IBM Cloud organization which is gnerally your email address. Run `ibmcloud cf orgs` to see all your orgs."
- }
+# variable "org" {
+#     description = "Your IBM Cloud organization which is gnerally your email address. Run `ibmcloud cf orgs` to see all your orgs."
+#  }
 
-variable "space" {
-    description = "Your IBM Cloud space to provision the Compose for MySQL service. Run `ibmcloud cf spaces` to see all your spaces."
-}
+# variable "space" {
+#     description = "Your IBM Cloud space to provision the Compose for MySQL service. Run `ibmcloud cf spaces` to see all your spaces."
+# }
 
-variable "region" {
-    default = "us-south"
-    description = "Region to deploy your Compose MySQL instance."
- }
+# variable "region" {
+#     default = "us-south"
+#     description = "Region to deploy your Compose MySQL instance."
+#  }
 
 variable "datacenter" {
     default = "wdc04"
@@ -43,13 +43,13 @@ variable "poolsize" {
     description = "Number of nodes in your cluster."
 }
 
-variable "service_name" {
-    default = "composeformysql"
-    description = "Service ID for the Compose for MySQL instance."
- }
+# variable "service_name" {
+#     default = "composeformysql"
+#     description = "Service ID for the Compose for MySQL instance."
+#  }
 
  variable "kube_version" {
-    default = "3.11_openshift"
+    default = "1.14.7"
     description = "Version of Kubernetes or OpenShift. Run `ic ks versions` to see all the versions."
  }
  variable "hardware" {
