@@ -17,7 +17,7 @@ variable "region" {
 
 variable "datacenter" {
     default = "wdc04"
-    description = "The datacenter to provision your Red Hat OpenShift cluster in IBM Cloud."
+    description = "The datacenter to provision your Kubernetes or OpenShift cluster in IBM Cloud."
 }
 
 variable "machine_type" {
@@ -35,7 +35,7 @@ variable "public_vlan_id" {
 
 variable "cluster_name" {
     default = "cluster1"
-    description = "Name of your OpenShift cluster."
+    description = "Name of your Kubernetes or OpenShift cluster."
 }
 
 variable "poolsize" {
@@ -50,9 +50,9 @@ variable "service_name" {
 
  variable "kube_version" {
     default = "3.11_openshift"
-    description = "Version of OpenShift."
+    description = "Version of Kubernetes or OpenShift. Run `ic ks versions` to see all the versions."
  }
  variable "hardware" {
     default = "shared"
-    description = "Type of hardware for OpenShift cluster."
+    description = "Type of hardware for Kubernetes or OpenShift cluster."
  }
