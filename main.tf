@@ -34,7 +34,7 @@ resource "ibm_is_instance" "testacc_instance" {
 
 resource "ibm_is_floating_ip" "testacc_floatingip" {
   name   = "testfip1"
-  target = ibm_is_instance.testacc_instance.primary_network_interface.0.id
+  target = "${ibm_is_instance.testacc_instance.primary_network_interface.0.id}"
 }
 
 
