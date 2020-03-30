@@ -1,33 +1,33 @@
 provider "ibm" {
-  ibmcloud_api_key = var.ibmcloud_api_key
-#   region = var.region
+  ibmcloud_api_key = "${var.ibmcloud_api_key}"
+#   region = "${var.region}"
 }
 
 
 resource "ibm_container_cluster" "cluster" {
-  name              = var.cluster_name
-  datacenter        = var.datacenter
-  hardware          = var.hardware
-  default_pool_size = var.poolsize
-  machine_type      = var.machine_type
-  public_vlan_id    = var.public_vlan_id
-  private_vlan_id   = var.private_vlan_id
-  kube_version      = var.kube_version
+  name              = "${var.cluster_name}"
+  datacenter        = "${var.datacenter}"
+  hardware          = "${var.hardware}"
+  default_pool_size = "${var.poolsize}"
+  machine_type      = "${var.machine_type}"
+  public_vlan_id    = "${var.public_vlan_id}"
+  private_vlan_id   = "${var.private_vlan_id}"
+  kube_version      = "${var.kube_version}"
 }
 
 
 
 resource "ibm_is_instance" "vpc_test_instance" {
   name    = "testinstance"
-  image   = var.image_id
-  profile = var.vpc_machine_type
+  image   = "${var.image_id}"
+  profile = "${var.vpc_machine_type}"
 
   primary_network_interface {
     port_speed = "1000"
-    subnet     = var.vpc_subnet_id
+    subnet     = "${var.vpc_subnet_id}"
   }
 
-  vpc  = var.vpc_id
+  vpc  = "${var.vpc_id}"
   zone = "us-south-1"
   keys = ["${var.key_id}"]
 }
