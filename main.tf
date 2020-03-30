@@ -34,7 +34,8 @@ resource "ibm_is_instance" "vpctest_instance" {
 
 resource "ibm_is_floating_ip" "vpc_test_instance_floatingip" {
   name   = "testfip1"
-  target = ibm_is_instance.vpctest_instance.primary_network_interface.0.id
+  zone   = "us-south-1"
+#  target = ibm_is_instance.vpctest_instance.primary_network_interface.0.id
 }
 
 
