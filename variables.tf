@@ -48,11 +48,35 @@ variable "poolsize" {
 #     description = "Service ID for the Compose for MySQL instance."
 #  }
 
- variable "kube_version" {
-    default = "1.14.7"
-    description = "Version of Kubernetes or OpenShift. Run `ic ks versions` to see all the versions."
- }
- variable "hardware" {
-    default = "shared"
-    description = "Type of hardware for Kubernetes or OpenShift cluster."
- }
+variable "kube_version" {
+   default = "1.14.7"
+   description = "Version of Kubernetes or OpenShift. Run `ic ks versions` to see all the versions."
+}
+variable "hardware" {
+   default = "shared"
+   description = "Type of hardware for Kubernetes or OpenShift cluster."
+}
+variable "vpc_id" {
+   default = "01eda778-b822-43a2-816d-d30713df5e13"
+   description = "ID of the VPC to place instances into, run `ibmcloud is vpcs` to see your VPCS and their ids. Do not include the prefix eg. `r006-`"
+}
+variable "image_id" {
+   default = "7eb4e35b-4257-56f8-d7da-326d85452591"
+   description = "ID of the image to build instances with, run `ibmcloud is images | grep -v deprecated | grep ubuntu | grep amd64` to see your available images and their ids. Do not include the prefix eg. `r006-`"
+}
+
+variable "vpc_machine_type" {
+    default = "bx2-2x8"
+    description = "The flavor of worker node in your cluster. Run `ibmcloud ks flavors --zone <datacenter>` to see the different flavors."
+}
+
+variable "vpc_subnet_id" {
+   default = "70be8eae-134c-436e-a86e-04849f84cb34"
+   description = "ID of the subnet to place instances into, run `ibmcloud is subnets` to see your VPCS and their ids. Do not include the prefix eg. `0171-`"
+}
+
+
+variable "key_id" {
+   default = "eac87f33-0c00-4da7-aa66-dc2d972148bd"
+   description = "ID of the key to build instances with, run `ibmcloud is keys` to see available keys and their ids. Do not include the prefix eg. `r006-`"
+}

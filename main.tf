@@ -16,6 +16,29 @@ resource "ibm_container_cluster" "cluster" {
 }
 
 
+
+resource "ibm_is_instance" "vpc_test_instance" {
+  name    = "testinstance"
+  image   = "${var.image_id}"
+  profile = "${var.vpc_machine_type}"
+
+  primary_network_interface {
+    port_speed = "1000"
+    subnet     = "${var.vpc_subnet_id}"
+  }
+
+  vpc  = "${var.vpc_id}"
+  zone = "us-south-1"
+  keys = ["${var.key_id}"]
+}
+
+resource "ibm_is_floating_ip" "vpc_test_instance_floatingip" {
+  name   = "testfip1"
+  target = ibm_is_instance.vpc_test_instance.primary_network_interface.0.id
+}
+
+
+
 # data "ibm_org" "org" {
 #   org = "${var.org}"
 # }
@@ -42,3 +65,6 @@ resource "ibm_container_cluster" "cluster" {
 #   service_instance_id = "${ibm_service_instance.mysql_db.id}"
 #   namespace_id        = "default"
 # }
+
+
+
