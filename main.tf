@@ -17,7 +17,7 @@ resource "ibm_container_cluster" "cluster" {
 
 
 
-resource "ibm_is_instance" "vpc_test_instance" {
+resource "ibm_is_instance" "vpctest_instance" {
   name    = "testinstance"
   image   = "${var.image_id}"
   profile = "${var.vpc_machine_type}"
@@ -34,7 +34,7 @@ resource "ibm_is_instance" "vpc_test_instance" {
 
 resource "ibm_is_floating_ip" "vpc_test_instance_floatingip" {
   name   = "testfip1"
-  target = ibm_is_instance.vpc_test_instance.primary_network_interface.0.id
+  target = ibm_is_instance.vpctest_instance.primary_network_interface.0.id
 }
 
 
