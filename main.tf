@@ -17,7 +17,7 @@ resource "ibm_container_cluster" "cluster" {
 
 
 
-resource "ibm_is_instance" "vpctest_instance" {
+resource "ibm_is_instance" "testacc_instance" {
   name    = "testinstance"
   image   = "${var.image_id}"
   profile = "${var.vpc_machine_type}"
@@ -32,12 +32,10 @@ resource "ibm_is_instance" "vpctest_instance" {
   keys = ["${var.key_id}"]
 }
 
-resource "ibm_is_floating_ip" "vpc_test_instance_floatingip" {
+resource "ibm_is_floating_ip" "testacc_floatingip" {
   name   = "testfip1"
-  zone   = "us-south-1"
-#  target = ibm_is_instance.vpctest_instance.primary_network_interface.0.id
+  target = ibm_is_instance.testacc_instance.primary_network_interface.0.id
 }
-
 
 
 # data "ibm_org" "org" {
